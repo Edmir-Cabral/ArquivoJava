@@ -14,8 +14,8 @@ public class Aplicacao {
 
     public static void main(String[] args) {
         String caminho = "arquivo.txt";
-        Endereco end1 = new Endereco();
-        Pessoa p1 = new Pessoa("Edmir", 34, "5555555", end1);
+        Endereco end = new Endereco();
+        Pessoa p1 = new Pessoa("Edmir", 34, "5555555", end);
         
         
         
