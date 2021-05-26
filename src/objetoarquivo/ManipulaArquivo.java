@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ManipulaArquivo {
             }
         }
         try {
-            FileOutputStream fileOutput = new FileOutputStream(arquivo);
+            FileOutputStream fileOutput = new FileOutputStream(arquivo, true);
             ObjectOutputStream objOutput = new ObjectOutputStream(fileOutput);
             
             objOutput.writeObject(obj);
@@ -52,7 +53,12 @@ public class ManipulaArquivo {
             FileInputStream fileInput = new FileInputStream(arquivo);
             ObjectInputStream objInput = new ObjectInputStream(fileInput);
             
-            Object retorno = objInput.readObject();
+            List<Object> retorno = (List<Object>)objInput.readObject();
+            
+            for (Object object : retorno) {
+                System.out.println(object);
+                
+            }
             
             objInput.close();
             fileInput.close();
